@@ -4,26 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+
   <script src="index.js" defer></script>
   
   <title>Decodificador de Texto</title>
 </head>
 <body>
   <header>
-    <img src="" alt="">
+    <img src="img/Frame 6.png" alt="">
   </header>
   <main> 
     <section>
       <input class="palavraDigitada" type="text" placeholder="Digite o texto aqui...">
       <p>Menssagem de validação</p>
-      <button class="criptografar" >Criptografar</button>
-      <button class="descriptografar">Descriptografar</button>
+      <button id="btnCriptografar" class="criptografar" >Criptografar</button>
+      <button id="btnDescriptografar" class="descriptografar">Descriptografar</button>
     </section>
     <aside>
       <img src="" alt="">
-      <p class="quadroExibir"></p>
-      <p></p>
-      <button onclick="copiarTexto()">Copiar</button>
+      <p class="quadroExibir exibirPalavra"></p>
+      <p class=""></p>
+      <button id="btnCopiar" class="copiar" onclick="copiarTexto()">Copiar</button>
     </aside>
   </main>
   <footer>

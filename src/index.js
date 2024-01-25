@@ -15,10 +15,14 @@ const processarTexto  = (operacao)=> {
 }
 botaoCriptografar.addEventListener("click", () => {
   processarTexto(criptografar);
+  const btn = botaoCriptografar.id
+  alterarCorBotao(btn)
 });
 
 botaoDescriptografar.addEventListener("click", () => {
   processarTexto(descriptografar);
+  const btn = botaoDescriptografar.id
+  alterarCorBotao(btn)
 });
 
 const criptografar = (palavra) => {
@@ -91,4 +95,18 @@ const copiarTexto = () => {
   document.execCommand("copy");
 
   document.body.removeChild(textoArea);
+
+  const btnCopiar = document.querySelector('.copiar')
+
+  const btn = btnCopiar.id
+  alterarCorBotao(btn)
 };
+
+const alterarCorBotao = (botaoId)=>{
+  const botoes = document.querySelectorAll('button')
+
+  botoes.forEach(botao => botao.classList.remove('btnAtivo'))
+
+  const botaoClicado = document.getElementById(botaoId)
+  botaoClicado.classList.add('btnAtivo')
+}
