@@ -8,21 +8,26 @@ const botaoCriptografar = selecionar("criptografar");
 const botaoDescriptografar = selecionar("descriptografar");
 
 const quadroExibir = selecionar("quadroExibir");
+const alertaValidacao = selecionar("alerta-validacao");
 
-const processarTexto  = (operacao)=> {
+const processarTexto = (operacao) => {
   let texto = palavraDigitada.value;
   quadroExibir.innerHTML = operacao(texto);
-}
+};
 botaoCriptografar.addEventListener("click", () => {
-  processarTexto(criptografar);
-  const btn = botaoCriptografar.id
-  alterarCorBotao(btn)
+  if (!verificarMaiusculas(palavraDigitada.value)) {
+    processarTexto(criptografar);
+    const btn = botaoCriptografar.id;
+    alterarCorBotao(btn);
+    alertaValidacao.innerHTML = "";
+    palavraDigitada.value = "";
+  }
 });
 
 botaoDescriptografar.addEventListener("click", () => {
   processarTexto(descriptografar);
-  const btn = botaoDescriptografar.id
-  alterarCorBotao(btn)
+  const btn = botaoDescriptografar.id;
+  alterarCorBotao(btn);
 });
 
 const criptografar = (palavra) => {
@@ -96,17 +101,30 @@ const copiarTexto = () => {
 
   document.body.removeChild(textoArea);
 
-  const btnCopiar = document.querySelector('.copiar')
+  const btnCopiar = document.querySelector(".copiar");
 
-  const btn = btnCopiar.id
-  alterarCorBotao(btn)
+  const btn = btnCopiar.id;
+  alterarCorBotao(btn);
 };
 
-const alterarCorBotao = (botaoId)=>{
-  const botoes = document.querySelectorAll('button')
+const alterarCorBotao = (botaoId) => {
+  const botoes = document.querySelectorAll("button");
 
-  botoes.forEach(botao => botao.classList.remove('btnAtivo'))
+  botoes.forEach((botao) => botao.classList.remove("btnAtivo"));
 
-  const botaoClicado = document.getElementById(botaoId)
-  botaoClicado.classList.add('btnAtivo')
-}
+  const botaoClicado = document.getElementById(botaoId);
+  botaoClicado.classList.add("btnAtivo");
+};
+
+const verificarMaiusculas = (palavra) => {
+  for (let i = 0; i < palavra.length; i++) {
+    if (palavra[i] >= "A" && palavra[i] <= "Z") {
+      return (alertaValidacao.innerHTML = "Não é permitido letras maiúsculas");
+    }
+
+    if (!/[a-zA-Z]/.test(palavra[i])) {
+      return (alertaValidacao.innerHTML =
+        "Não é permitido caracteres especiais!");
+    }
+  }
+};

@@ -1,8 +1,8 @@
 body {
-  height: 450px;
+  height: 28.125rem;
 }
 header {
-  margin: 40px auto auto 40px;
+  margin: 2.5rem auto auto 2.5rem;
 }
 
 main {
@@ -11,36 +11,46 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 }
 
 section {
-  width: 60%;
-  padding: 30px;
+  width: 48%;
+  height: 18.75rem;
+  padding: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9375rem;
+
+  background-color: #4a688a;
+  border-radius: 0.625rem;
 }
 
 input {
-  width: 310px;
-  height: 50px;
-  margin-bottom: 15px;
+  width: 40%;
+  height: 3.125rem;
+  margin-bottom: 0.9375rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: #d8dfe8;
-  padding-left: 11px;
+  padding-left: 0.6875rem;
 
   font-family: Inter;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 button {
-  width: 320px;
-  height: 60px;
-  margin-top: 15px;
+  box-sizing: border-box;
+  width: 40%;
+  height: 3.75rem;
+  margin-top: 0.9375rem;
 
-  border-radius: 10px;
+  border-radius: 0.625rem;
   border: none;
   cursor: pointer;
 
@@ -49,7 +59,7 @@ button {
 
   text-align: center;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -59,10 +69,10 @@ button {
   background-color: #0a3871;
   color: #d8dfe8;
 }
-.exibirPalavra{
-  width: 320px;
-  height:120px ;
-  border-radius: 10px;
+.exibirPalavra {
+  width: 20rem;
+  height: 7.5rem;
+  border-radius: 0.625rem;
   border: none;
   background-color: #d8dfe86d;
 
@@ -72,8 +82,72 @@ button {
   align-items: center;
 
   font-family: Inter;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.img_aside {
+  height: 16.25rem;
+  width: 15.625rem;
+}
+
+.copiar {
+  width: 100%;
+}
+
+.box_btn {
+  display: flex;
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 60rem) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  section {
+    width: 80%;
+    margin-top: 1.25rem;
+    align-items: center;
+
+    input {
+      width: 87%;
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        width: 90%;
+      }
+    }
+  }
+
+  aside {
+    width: 77%;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      display: none;
+    }
+
+    div {
+      margin-top: 1.25rem;
+
+      p {
+        width: 100%;
+      }
+      .copiar {
+        width: 100%;
+      }
+    }
+  }
 }
